@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cullen Hub - Central de Downloads de APKs, Softwares, Vídeos e Músicas</title>
+  <meta name="description" content="Cullen Hub é uma plataforma completa de downloads. Encontre APKs, Softwares, Vídeos, Músicas e Imagens organizados por categoria. Download rápido e seguro!">
+  <meta name="keywords" content="downloads, APK, software, vídeos, músicas, imagens, Cullen Hub, baixar, central de downloads">
+  <meta name="author" content="Cullen Hub">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="favicon.ico">
+  <meta name="theme-color" content="#111827">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Cullen Hub",
+    "url": "https://cullenhub.liveblog365.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://cullenhub.liveblog365.com/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body class="bg-gray-900 text-white">
+  <header class="bg-gray-800 p-4 flex justify-between items-center" id="header">
+    <h1 class="text-xl font-bold">Cullen Hub</h1>
+    <button onclick="toggleTheme()" class="bg-gray-600 px-3 py-1 rounded text-sm">🌙/☀️</button>
+    <input id="searchInput" type="text" placeholder="Pesquisar..." class="p-2 rounded text-black">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+  </header>
+
+  <nav class="bg-gray-700 p-2 flex flex-wrap justify-center gap-2" role="navigation" aria-label="Navegação por categorias">
+    <button onclick="filterByTipo('todos')" class="bg-blue-600 px-4 py-1 rounded">Todos</button>
+    <button onclick="filterByTipo('APK')" class="bg-blue-600 px-4 py-1 rounded">APKs</button>
+    <button onclick="filterByTipo('Software')" class="bg-blue-600 px-4 py-1 rounded">Softwares</button>
+    <button onclick="filterByTipo('Música')" class="bg-blue-600 px-4 py-1 rounded">Músicas</button>
+    <button onclick="filterByTipo('Vídeo')" class="bg-blue-600 px-4 py-1 rounded">Vídeos</button>
+    <button onclick="filterByTipo('Imagem')" class="bg-blue-600 px-4 py-1 rounded">Imagens</button>
+  </nav>
+
+
+
+
+  
+  <main class="p-4">
+    <h2 class="text-2xl font-semibold mb-4">Explore as melhores opções de download em diversas categorias</h2>
+    <script async="async" data-cfasync="false" src="//pl27082316.profitableratecpm.com/acfb74ce9069dcbe5b9dbdf6db26d6a5/invoke.js"></script>
+<div id="container-acfb74ce9069dcbe5b9dbdf6db26d6a5"></div>
+    <div id="downloadsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"></div>
+  </main>
+
+  <footer class="bg-gray-800 text-center text-sm text-gray-400 py-4">
+    © 2025 Cullen Hub. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    let todosArquivos = []
+    let contadorDownloads = {}
+
+    async function carregarDados() {
+      const resposta = await fetch('downloads.json')
+      const dados = await resposta.json()
+      todosArquivos = dados
+      renderizarArquivos(todosArquivos)
+    }
+
+    function renderizarArquivos(lista) {
+      const container = document.getElementById('downloadsContainer')
+      container.innerHTML = ''
+      lista.forEach(arquivo => {
+        const id = btoa(arquivo.nome).slice(0, 8)
+        contadorDownloads[id] = contadorDownloads[id] || 0
+
+        const card = document.createElement('div')
+        card.className = 'bg-gray-800 p-4 rounded shadow'
+        card.innerHTML = `
+          <img src="thumbs/${arquivo.thumbnail}" alt="Thumbnail de ${arquivo.nome}" class="w-full h-32 object-contain mb-2">
+          <h3 class="text-lg font-semibold mb-1">${arquivo.nome}</h3>
+          <p class="text-sm text-gray-400 mb-1">${arquivo.tipo} - ${arquivo.categoria}</p>
+          <p class="text-xs text-yellow-400 mb-2">Downloads: <span id="dl-${id}">${contadorDownloads[id]}</span></p>
+          ${arquivo.tipo === 'Vídeo' ? `<video controls class='w-full mb-2'><source src='${arquivo.link}' type='video/mp4'></video>` : ''}
+          ${arquivo.tipo === 'Música' ? `<audio controls class='w-full mb-2'><source src='${arquivo.link}' type='audio/mpeg'></audio>` : ''}
+          <button onclick="registrarDownload('${arquivo.link}', 'dl-${id}')" class="block bg-green-600 w-full py-1 rounded">Download</button>
+        `
+        container.appendChild(card)
+      })
+    }
+
+    function registrarDownload(link, idSpan) {
+      contadorDownloads[idSpan.slice(3)]++
+      document.getElementById(idSpan).textContent = contadorDownloads[idSpan.slice(3)]
+      window.open(link, '_blank')
+    }
+
+    function filterByTipo(tipo) {
+      if (tipo === 'todos') return renderizarArquivos(todosArquivos)
+      const filtrados = todosArquivos.filter(arq => arq.tipo === tipo)
+      renderizarArquivos(filtrados)
+    }
+
+    document.getElementById('searchInput').addEventListener('input', e => {
+      const termo = e.target.value.toLowerCase()
+      const resultados = todosArquivos.filter(arq => arq.nome.toLowerCase().includes(termo))
+      renderizarArquivos(resultados)
+    })
+
+    function toggleTheme() {
+      const body = document.body
+      const header = document.getElementById('header')
+      const nav = document.querySelector('nav')
+      const main = document.querySelector('main')
+      const isDark = body.classList.contains('bg-gray-900')
+
+      if (isDark) {
+        body.classList.replace('bg-gray-900', 'bg-gray-100')
+        body.classList.replace('text-white', 'text-black')
+        header.classList.replace('bg-gray-800', 'bg-white')
+        nav.classList.replace('bg-gray-700', 'bg-gray-200')
+        main.classList.replace('text-white', 'text-black')
+      } else {
+        body.classList.replace('bg-gray-100', 'bg-gray-900')
+        body.classList.replace('text-black', 'text-white')
+        header.classList.replace('bg-white', 'bg-gray-800')
+        nav.classList.replace('bg-gray-200', 'bg-gray-700')
+        main.classList.replace('text-black', 'text-white')
+      }
+    }
+
+    carregarDados()
+  </script>
+</body>
+</html>
