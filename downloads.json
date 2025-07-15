@@ -13,7 +13,7 @@
     "link": "https://4br.me/oeq3",
     "thumbnail": "apk.png"
   },
-    {
+  {
     "categoria": "VPN",
     "tipo": "APK",
     "nome": "Psiphon Pro - Vpn TMCEL",
@@ -27,16 +27,13 @@
     "link": "https://drive.google.com/file/d/1i8XWj3mbQs2IY0eh_PLSZtNcH-KxKTef/view?usp=drive_link",
     "thumbnail": "softwaree.png"
   },
-
-
-    {
+  {
     "categoria": "Ativador de Windows",
     "tipo": "Software",
     "nome": "Ativador de Windows e Office",
     "link": "https://drive.google.com/file/d/1wkGroMCQk-d8WTdosFJiDZygLHltqscA/view?usp=drive_link",
     "thumbnail": "softwaree.png"
   },
-
   {
     "categoria": "Vídeo Entretenimento",
     "tipo": "Vídeo",
@@ -44,7 +41,6 @@
     "link": "https://4br.me/bHkffbSVX",
     "thumbnail": "videoo.jpg"
   },
-
   {
     "categoria": "Vídeo Entretenimento",
     "tipo": "Vídeo",
@@ -52,5 +48,4 @@
     "link": "https://4br.me/umzxBty",
     "thumbnail": "videoo.jpg"
   }
-
 ]
