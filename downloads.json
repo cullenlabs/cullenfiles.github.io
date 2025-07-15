@@ -13,32 +13,11 @@
     "link": "https://4br.me/oeq3",
     "thumbnail": "apk.png"
   },
-  {
-    "categoria": "Navegador",
-    "tipo": "APK",
-    "nome": "Brave Browser",
-    "link": "https://exemplo.com/apks/brave.apk",
-    "thumbnail": "apk.png"
-  },
     {
     "categoria": "VPN",
     "tipo": "APK",
     "nome": "Psiphon Pro - Vpn TMCEL",
     "link": "https://drive.google.com/file/d/1pC5BSKUUmZVpo0FAWHtxVE1rNSXpWJEO/view?usp=drive_link",
-    "thumbnail": "apk.png"
-  },
-  {
-    "categoria": "Leitor de Vídeo",
-    "tipo": "APK",
-    "nome": "MX Player",
-    "link": "https://exemplo.com/apks/mxplayer.apk",
-    "thumbnail": "apk.png"
-  },
-  {
-    "categoria": "Leitor de Música",
-    "tipo": "APK",
-    "nome": "Musicolet",
-    "link": "https://exemplo.com/apks/musicolet.apk",
     "thumbnail": "apk.png"
   },
   {
@@ -48,27 +27,8 @@
     "link": "https://drive.google.com/file/d/1i8XWj3mbQs2IY0eh_PLSZtNcH-KxKTef/view?usp=drive_link",
     "thumbnail": "softwaree.png"
   },
-  {
-    "categoria": "Antivírus",
-    "tipo": "Software",
-    "nome": "Avast Free",
-    "link": "https://exemplo.com/software/avast.exe",
-    "thumbnail": "softwaree.png"
-  },
-  {
-    "categoria": "Compressão",
-    "tipo": "Software",
-    "nome": "7-Zip",
-    "link": "https://exemplo.com/software/7zip.exe",
-    "thumbnail": "softwaree.png"
-  },
-  {
-    "categoria": "Leitor de Vídeo",
-    "tipo": "Software",
-    "nome": "VLC Media Player",
-    "link": "https://exemplo.com/software/vlc.exe",
-    "thumbnail": "softwaree.png"
-  },
+
+
     {
     "categoria": "Ativador de Windows",
     "tipo": "Software",
@@ -76,20 +36,7 @@
     "link": "https://drive.google.com/file/d/1wkGroMCQk-d8WTdosFJiDZygLHltqscA/view?usp=drive_link",
     "thumbnail": "softwaree.png"
   },
-  {
-    "categoria": "Vídeo Educacional",
-    "tipo": "Vídeo",
-    "nome": "Aula de Física - Gravidade",
-    "link": "https://exemplo.com/media/videos/gravity.mp4",
-    "thumbnail": "videoo.jpg"
-  },
-  {
-    "categoria": "Vídeo Entretenimento",
-    "tipo": "Vídeo",
-    "nome": "Curta Animado",
-    "link": "https://exemplo.com/media/videos/animacao.mp4",
-    "thumbnail": "videoo.jpg"
-  },
+
   {
     "categoria": "Vídeo Entretenimento",
     "tipo": "Vídeo",
@@ -97,39 +44,13 @@
     "link": "https://4br.me/bHkffbSVX",
     "thumbnail": "videoo.jpg"
   },
+
   {
-    "categoria": "Trilha Sonora",
-    "tipo": "Música",
-    "nome": "LoFi Beats",
-    "link": "https://exemplo.com/media/musicas/lofi.mp3",
-    "thumbnail": "musica.jpg"
+    "categoria": "Vídeo Entretenimento",
+    "tipo": "Vídeo",
+    "nome": "Limitless.2011 - Dublado",
+    "link": "https://4br.me/umzxBty",
+    "thumbnail": "videoo.jpg"
   },
-  {
-    "categoria": "Instrumental",
-    "tipo": "Música",
-    "nome": "Jazz Background",
-    "link": "https://exemplo.com/media/musicas/jazz.mp3",
-    "thumbnail": "musica.jpg"
-  },
-  {
-    "categoria": "Paisagens",
-    "tipo": "Imagem",
-    "nome": "Montanhas ao Amanhecer",
-    "link": "https://exemplo.com/media/imagens/montanha.jpg",
-    "thumbnail": "imagem.jpg"
-  },
-  {
-    "categoria": "Arte Digital",
-    "tipo": "Imagem",
-    "nome": "Ciborgue Neon",
-    "link": "https://exemplo.com/media/imagens/neon.jpg",
-    "thumbnail": "imagem.jpg"
-  },
-  {
-    "categoria": "Wallpaper",
-    "tipo": "Imagem",
-    "nome": "Universo Abstrato",
-    "link": "https://exemplo.com/media/imagens/universo.jpg",
-    "thumbnail": "imagem.jpg"
-  }
+
 ]
