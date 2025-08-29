@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ricardino Macucule - Full-Stack Developer Jr</title>
+  <meta name="description" content="Personal profile landing page with social links and contact." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind config (optional extra colors)
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81'
+            }
+          },
+          boxShadow: {
+            glow: '0 10px 25px -5px rgb(99 102 241 / 0.35), 0 8px 10px -6px rgb(99 102 241 / 0.25)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Simple fade-in animation */
+    .fade-in { animation: fadeIn 0.8s ease both; }
+    @keyframes fadeIn { from {opacity: 0; transform: translateY(8px)} to {opacity:1; transform: translateY(0)} }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Theme script -->
+  <script>
+    // Persist dark mode
+    const userPref = localStorage.getItem('theme');
+    if (
+      userPref === 'dark' ||
+      (!userPref && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+    }
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    }
+  </script>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/60 bg-white/70 dark:bg-slate-900/60 border-b border-slate-200/60 dark:border-slate-800/60">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex items-center justify-between py-3">
+        <a href="#home" class="flex items-center gap-2 font-semibold tracking-tight">
+          <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-primary-600 text-white shadow-glow">DM</span>
+          <span class="hidden sm:block">Ricardino Macucule</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a class="hover:text-primary-600" href="#about">About</a>
+          <a class="hover:text-primary-600" href="#skills">Skills</a>
+          <a class="hover:text-primary-600" href="#projects">Projects</a>
+          <a class="hover:text-primary-600" href="#contact">Contact</a>
+        </nav>
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="hidden sm:inline-flex items-center rounded-xl bg-primary-600 px-4 py-2 text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-400">Hire Me</a>
+          <button aria-label="Toggle theme" onclick="toggleTheme()" class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800">
+            <!-- Sun / Moon icon -->
+            <svg class="sun h-5 w-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            <svg class="moon h-5 w-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-primary-50 to-transparent dark:from-primary-900/20"></div>
+    <div class="mx-auto max-w-6xl px-4 py-20 md:py-28">
+      <div class="grid gap-10 md:grid-cols-2 md:items-center">
+        <div class="fade-in">
+          <h1 class="text-4xl/tight font-extrabold sm:text-5xl/tight">
+            Hi, I'm <span class="text-primary-600">Ricardino Macucule</span> 👋
+          </h1>
+          <p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
+            Full-Stack Developer Jr, AI enthusiast, and open‑source tinkerer based in Maputo.
+          </p>
+          <div class="mt-6 flex flex-wrap items-center gap-3">
+            <a href="#projects" class="inline-flex items-center rounded-xl bg-primary-600 px-5 py-2.5 text-white hover:bg-primary-700">View Projects</a>
+            <a href="#contact" class="inline-flex items-center rounded-xl border border-slate-300 px-5 py-2.5 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">Contact</a>
+          </div>
+          <!-- Socials -->
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="https://www.linkedin.com/in/dino-macu-cule" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4V8zM8.5 8h3.8v2.2h.05c.53-1 1.83-2.2 3.77-2.2 4.03 0 4.77 2.65 4.77 6.1V24h-4v-7.6c0-1.81-.03-4.14-2.52-4.14-2.52 0-2.91 1.97-2.91 4v7.74h-4V8z"/></svg>
+              LinkedIn
+            </a>
+            <a href="https://www.facebook.com/dino.macucule.58" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0h-21.35C.595 0 0 .595 0 1.326v21.348C0 23.405.595 24 1.326 24h11.495v-9.294H9.691V11.01h3.13V8.41c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.464.098 2.797.142v3.244l-1.92.001c-1.504 0-1.796.715-1.796 1.764v2.312h3.59l-.467 3.696h-3.123V24h6.127C23.405 24 24 23.405 24 22.674V1.326C24 .595 23.405 0 22.675 0z"/></svg>
+              Facebook
+            </a>
+            <a href="https://wa.me/258877075033" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+              <svg class="h-4 w-4" viewBox="0 0 32 32" fill="currentColor"><path d="M19.11 17.49c-.26-.13-1.51-.74-1.75-.82-.24-.09-.41-.13-.58.13-.17.26-.67.82-.82.99-.15.17-.3.19-.56.06-.26-.13-1.09-.4-2.07-1.27-.76-.68-1.27-1.51-1.42-1.77-.15-.26-.02-.4.11-.53.12-.12.26-.3.39-.45.13-.15.17-.26.26-.43.09-.17.04-.32-.02-.45-.06-.13-.58-1.4-.8-1.92-.21-.5-.43-.43-.58-.43-.15 0-.32-.02-.49-.02s-.45.06-.68.32c-.24.26-.9.88-.9 2.14 0 1.26.92 2.48 1.05 2.65.13.17 1.8 2.74 4.36 3.84.61.26 1.08.41 1.45.53.61.19 1.16.16 1.6.1.49-.07 1.51-.62 1.73-1.23.21-.61.21-1.14.15-1.23-.06-.1-.24-.16-.5-.29z"/><path d="M16.02 3.06c-7.18 0-13 5.82-13 13 0 2.29.6 4.55 1.75 6.53L3 29l6.6-1.73a12.95 12.95 0 0 0 6.42 1.69h.01c7.18 0 13-5.82 13-13s-5.83-13-13.01-13zm7.69 20.7c-.33.94-1.94 1.8-2.68 1.92-.66.12-1.51.17-2.44-.15-.56-.18-1.28-.41-2.21-.8-3.89-1.68-6.42-5.62-6.61-5.89-.19-.26-1.58-2.1-1.58-4.01 0-1.9 1-2.82 1.36-3.21.37-.39.82-.49 1.09-.49.26 0 .54.01.78.02.24.01.58-.09.9.69.33.79 1.11 2.72 1.21 2.91.1.19.16.41.03.66-.13.26-.19.42-.38.65-.19.22-.4.49-.57.66-.19.19-.39.4-.17.78.22.39.98 1.61 2.11 2.61 1.45 1.27 2.67 1.67 3.06 1.86.39.19.62.17.85-.1.24-.26.97-1.13 1.23-1.52.26-.39.52-.32.87-.19.35.13 2.2 1.04 2.58 1.23.39.19.64.29.74.45.1.16.1.94-.23 1.89z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://t.me/dino_macucule" target="_blank" rel="noopener" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.373 0 12c0 6.628 5.372 12 12 12s12-5.372 12-12C24 5.373 18.628 0 12 0zm5.52 7.781l-1.9 8.963c-.144.654-.525.813-1.063.506l-2.94-2.168-1.418 1.365c-.157.157-.288.288-.59.288l.211-2.993 5.446-4.92c.236-.21-.051-.329-.366-.118l-6.725 4.234-2.9-.907c-.63-.197-.643-.63.132-.933l11.33-4.367c.525-.19.984.118.817.933z"/></svg>
+              Telegram
+            </a>
+            <a href="mailto:dinoleemacucule@gmail.com" class="inline-flex items-center gap-2 rounded-xl border border-slate-300 px-3 py-2 text-sm hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 13.065L0 6.375V18a2 2 0 0 0 2 2h20a2 2 0 0 0 2-2V6.375l-12 6.69z"/><path d="M12 10.935L24 4H0l12 6.935z"/></svg>
+              Email
+            </a>
+          </div>
+        </div>
+        <div class="relative mx-auto w-56 sm:w-72 md:w-full max-w-sm fade-in md:delay-150">
+          <div class="aspect-square overflow-hidden rounded-3xl border border-slate-200 shadow-xl dark:border-slate-800">
+            <img src="./profile-pic.png" alt="Profile photo" class="h-full w-full object-cover" />
+          </div>
+          <div class="absolute -bottom-5 -right-5 hidden rounded-2xl bg-white/80 px-4 py-3 text-sm shadow-lg backdrop-blur dark:bg-slate-900/80 md:block">
+            <div class="font-semibold">Available for freelance</div>
+            <div class="text-slate-600 dark:text-slate-300">Let's build something great</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <div class="grid gap-10 md:grid-cols-2 md:items-start">
+      <div>
+        <h2 class="text-2xl font-bold">About</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">I am a software developer with a passion for crafting clean, human‑centered interfaces and scalable apps. I love Pyhton, Vue, Tailwind, and building tools that make life easier.</p>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">When not coding, I share tutorials and tips on my YouTube channel and collaborate on community projects.</p>
+      </div>
+      <ul class="grid gap-4">
+        <li class="rounded-2xl border border-slate-200 p-4 dark:border-slate-800"><span class="font-medium">Location:</span> Remote</li>
+        <li class="rounded-2xl border border-slate-200 p-4 dark:border-slate-800"><span class="font-medium">Availability:</span> Full‑time / Freelance</li>
+        <li class="rounded-2xl border border-slate-200 p-4 dark:border-slate-800"><span class="font-medium">Languages:</span> English • Portuguese</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <h2 class="text-2xl font-bold">Skills</h2>
+    <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800">
+        <h3 class="font-semibold">Frontend</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">HTML, CSS, Tailwind CSS, JavaScript, Vue, React</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800">
+        <h3 class="font-semibold">Backend</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Node.js, Express, Flask, REST, WebSockets</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 p-5 dark:border-slate-800">
+        <h3 class="font-semibold">Tools</h3>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Git & GitHub, Docker, Railway, Vite</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <div class="flex items-center justify-between gap-4">
+      <h2 class="text-2xl font-bold">Featured Projects</h2>
+      <a href="#contact" class="text-sm text-primary-600 hover:underline">Work with me →</a>
+    </div>
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      <!-- Project card -->
+      <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+        <img class="h-48 w-full object-cover transition group-hover:scale-[1.02]" src="https://images.unsplash.com/photo-1555066931-bf19f8fd1085?q=80&w=1200&auto=format&fit=crop" alt="Project preview" />
+        <div class="p-5">
+          <h3 class="font-semibold">Realtime File Share</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">WebRTC + WebSocket app for fast P2P file transfers with one‑time codes.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
+            <span class="rounded-full border border-slate-200 px-2 py-1 dark:border-slate-700">WebRTC</span>
+            <span class="rounded-full border border-slate-200 px-2 py-1 dark:border-slate-700">Flask</span>
+            <span class="rounded-full border border-slate-200 px-2 py-1 dark:border-slate-700">Vue</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg dark:border-slate-800 dark:bg-slate-900">
+        <img class="h-48 w-full object-cover transition group-hover:scale-[1.02]" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="Project preview" />
+        <div class="p-5">
+          <h3 class="font-semibold">Lesson Plan Generator</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">AI‑assisted generator that creates Moçambique‑aligned lesson plans and exports to DOCX.</p>
+          <div class="mt-3 flex flex-wrap gap-2 text-xs text-slate-500">
+            <span class="rounded-full border border-slate-200 px-2 py-1 dark:border-slate-700">Python</span>
+            <span class="rounded-full border border-slate-200 px-2 py-1 dark:border-slate-700">Flask</span>
+            <span class="rounded-full border border-slate-200 px-2 py-1 dark:border-slate-700">Tailwind</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-6xl px-4 py-16 md:py-24">
+    <div class="grid gap-10 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-bold">Get in touch</h2>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">Got a project in mind or just want to say hello? Drop a message or ping me on any platform below.</p>
+        <ul class="mt-6 space-y-3 text-sm">
+          <li><a class="inline-flex items-center gap-2 hover:text-primary-600" href="mailto:youremail@example.com"><span class="font-medium">Email:</span> dinoleemacucule@gmail.com</a></li>
+          <li><a class="inline-flex items-center gap-2 hover:text-primary-600" href="https://wa.me/258840000000" target="_blank" rel="noopener"><span class="font-medium">WhatsApp:</span> +258 87 707 5033</a></li>
+          <li><a class="inline-flex items-center gap-2 hover:text-primary-600" href="https://t.me/yourusername" target="_blank" rel="noopener"><span class="font-medium">Telegram:</span> @dino_macucule</a></li>
+          <li><a class="inline-flex items-center gap-2 hover:text-primary-600" href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener"><span class="font-medium">LinkedIn:</span> /in/dino-macu-cule</a></li>
+          <li><a class="inline-flex items-center gap-2 hover:text-primary-600" href="https://www.facebook.com/yourusername" target="_blank" rel="noopener"><span class="font-medium">Facebook:</span> /dino.macucule.58</a></li>
+        </ul>
+      </div>
+      <form class="rounded-3xl border border-slate-200 p-6 shadow-sm dark:border-slate-800" onsubmit="handleSubmit(event)">
+        <div class="grid gap-4">
+          <div>
+            <label class="mb-1 block text-sm font-medium" for="name">Name</label>
+            <input id="name" name="name" type="text" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none ring-primary-400 focus:ring-2 dark:border-slate-700 dark:bg-slate-900" />
+          </div>
+          <div>
+            <label class="mb-1 block text-sm font-medium" for="email">Email</label>
+            <input id="email" name="email" type="email" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none ring-primary-400 focus:ring-2 dark:border-slate-700 dark:bg-slate-900" />
+          </div>
+          <div>
+            <label class="mb-1 block text-sm font-medium" for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 outline-none ring-primary-400 focus:ring-2 dark:border-slate-700 dark:bg-slate-900"></textarea>
+          </div>
+          <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-primary-600 px-5 py-2.5 font-medium text-white hover:bg-primary-700">Send Message</button>
+          <p id="formStatus" class="text-sm"></p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 py-8 text-center text-sm text-slate-500 dark:border-slate-800">
+    © <span id="year"></span> Ricardino Macucule. All rights reserved.
+  </footer>
+
+  <script>
+    (function(){
+      emailjs.init("lNwtADCAUl2gyyjx9");
+  })();
+
+    // Contact form handler: simple demo (replace with real endpoint)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const status = document.getElementById('formStatus');
+      status.textContent = 'Sending…';
+      emailjs.sendForm("service_9evbciu", "template_290pu6r", e.target)
+      .then(() => alert("Message sent!"))
+      .catch((err) => alert("Error: " + JSON.stringify(err)));
+
+      // Demo delay
+      setTimeout(() => {
+        console.log('Form data', data);
+        status.textContent = 'Thanks! Your message has been sent.';
+        status.className = 'text-sm text-green-600';
+        form.reset();
+      }, 600);
+    }
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
